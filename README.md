@@ -10,15 +10,15 @@
 <a href="https://github.com/SasiruVirajith"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg"><img alt="Hello, I'm Sasiru Virajith. Software. Data. AI. Software that feels simple. Engineering that isn't. Colombo, Sri Lanka, University of Westminster." src="assets/hero-light.svg" width="100%"></picture></a>
 
 <p align="center">
-  <a href="mailto:virajithsasiru@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/email-dark.svg"><img alt="Email" src="assets/buttons/email-light.svg" height="40"></picture></a>&nbsp;
-  <a href="https://www.linkedin.com/in/sasiru-virajith/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/linkedin-dark.svg"><img alt="LinkedIn" src="assets/buttons/linkedin-light.svg" height="40"></picture></a>&nbsp;
-  <a href="https://x.com/saziruVR"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/x-dark.svg"><img alt="X" src="assets/buttons/x-light.svg" height="40"></picture></a>&nbsp;
-  <a href="https://www.instagram.com/saziru.vr"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/instagram-dark.svg"><img alt="Instagram" src="assets/buttons/instagram-light.svg" height="40"></picture></a>
+  <a href="mailto:virajithsasiru@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/email-dark.svg"><img alt="Email" src="assets/buttons/email-light.svg" height="44"></picture></a>&nbsp;
+  <a href="https://www.linkedin.com/in/sasiru-virajith/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/linkedin-dark.svg"><img alt="LinkedIn" src="assets/buttons/linkedin-light.svg" height="44"></picture></a>&nbsp;
+  <a href="https://x.com/saziruVR"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/x-dark.svg"><img alt="X" src="assets/buttons/x-light.svg" height="44"></picture></a>&nbsp;
+  <a href="https://www.instagram.com/saziru.vr"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/instagram-dark.svg"><img alt="Instagram" src="assets/buttons/instagram-light.svg" height="44"></picture></a>
 </p>
 
 <br>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/about-dark.svg"><img alt="I'm a 19-year-old software engineering student at the University of Westminster, building full-stack products where finance, cloud and AI meet. Lately that means data science and MLOps: taking models out of the notebook and into something people can rely on." src="assets/about-light.svg" width="100%"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/about-dark.svg"><img alt="I build software end to end. From the interface people touch to the models and infrastructure behind it. I&#39;m a 19-year-old Software Engineering student at the University of Westminster and co-founder of Opti5 Labs, based in Colombo. Right now my focus is FinTech, AI, data science and MLOps." src="assets/about-light.svg" width="100%"></picture>
 
 <br><br>
 
@@ -39,7 +39,13 @@
 
 <br><br>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/specs-dark.svg"><img alt="Tech specs: 76 tools across languages, frontend and mobile, backend and APIs, data science, machine learning, MLOps, databases, cloud and DevOps, and tools, each listed by name." src="assets/specs-light.svg" width="100%"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/specs-dark.svg"><img alt="Tech stack: 76 tools across languages, frontend and mobile, backend and APIs, data science, machine learning, MLOps, databases, cloud and DevOps, and tools, each listed by name." src="assets/specs-light.svg" width="100%"></picture>
+
+<br><br>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/company-header-dark.svg"><img alt="What I'm building." src="assets/company-header-light.svg" width="100%"></picture>
+
+<a href="https://www.opti5labs.com/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/opti5-dark.svg"><img alt="Co-founder, Opti5 Labs. A technology consultancy building enterprise software, AI integrations and web platforms for international clients. 25+ projects delivered across 6 service areas." src="assets/opti5-light.svg" width="100%"></picture></a>
 
 <br><br>
 

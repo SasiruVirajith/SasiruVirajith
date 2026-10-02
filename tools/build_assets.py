@@ -28,13 +28,24 @@ FOOTER_EYEBROW = "Got an idea?"
 FOOTER_LEAD, FOOTER_ACCENT = "Let's build", "something."  # the accent word is drawn in gradient
 FOOTER_LINE = "Always up for a conversation about FinTech, data and AI."
 
-# The About statement. Highlighted runs are (text, system color); plain runs are strings.
-ABOUT = [
-    "I'm a 19-year-old software engineering student at the University of Westminster, building ",
-    ("full-stack products", "blue"), " where ", ("finance", "green"), ", ", ("cloud", "teal"),
-    " and ", ("AI", "purple"), " meet. Lately that means ", ("data science", "orange"), " and ",
-    ("MLOps", "pink"), ": taking models out of the notebook and into something people can rely on.",
+# The About section: a two-tone headline (styled runs: "label" = full contrast, None = gray),
+# then a short bio where the "ink" run is drawn in the hero's gradient.
+ABOUT_HEADLINE = [
+    ("I build software end to end.", "label"),
+    (" From the interface people touch to the models and infrastructure behind it.", None),
 ]
+ABOUT_BODY = [
+    ("I'm a 19-year-old Software Engineering student at the University of Westminster and "
+     "co-founder of Opti5 Labs, based in Colombo. Right now my focus is ", None),
+    ("FinTech, AI, data science and MLOps.", "ink"),
+]
+
+OPTI5 = dict(
+    name="Opti5 Labs.", role="Co-founder", logo="logos/opti5labs.png",
+    url="https://www.opti5labs.com/", domain="opti5labs.com",
+    body="A technology consultancy building enterprise software, AI integrations and web platforms for international clients.",
+    stats=[("25+", "Projects delivered"), ("6", "Service areas")],
+)
 
 LINKS = [  # (file slug, label, glyph, primary)
     ("email", "Email", "mail", True),
@@ -116,11 +127,12 @@ def glyph(kind, color, bg="none"):
         return (f'<rect x="2" y="4.5" width="20" height="15" rx="3.5" fill="none" stroke="{color}" stroke-width="2"/>'
                 f'<path d="M3.5 7l8.5 6 8.5-6" fill="none" stroke="{color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>')
     if kind == "linkedin":
-        return (f'<rect x="2" y="2" width="20" height="20" rx="4.5" fill="{color}"/>'
-                f'<rect x="6" y="10" width="2.8" height="8" rx="0.6" fill="{bg}"/><circle cx="7.4" cy="6.9" r="1.7" fill="{bg}"/>'
-                f'<path d="M11 10h2.6v1.3c.6-1 1.7-1.5 2.9-1.5 2.1 0 3.3 1.3 3.3 3.8V18h-2.8v-4c0-1.2-.5-1.9-1.5-1.9s-1.7.7-1.7 1.9v4H11z" fill="{bg}"/>')
+        return (f'<rect x="2.5" y="2.5" width="19" height="19" rx="5" fill="none" stroke="{color}" stroke-width="2"/>'
+                f'<path d="M8 10.5V17M12 17v-6.5M12 13.4c0-1.8 1.1-2.9 2.6-2.9s2.4 1 2.4 2.9V17" fill="none" stroke="{color}" '
+                f'stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="7.4" r="1.25" fill="{color}"/>')
     if kind == "x":
-        return f'<path transform="translate(2.5 3) scale(0.0158)" fill="{color}" d="{X_PATH}"/>'
+        return (f'<path transform="translate(2.6 2.8) scale(0.0157)" fill="{color}" stroke="{color}" '
+                f'stroke-width="40" stroke-linejoin="round" d="{X_PATH}"/>')
     if kind == "instagram":
         return (f'<rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="{color}" stroke-width="2"/>'
                 f'<circle cx="12" cy="12" r="4.3" fill="none" stroke="{color}" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="{color}"/>')
@@ -226,13 +238,12 @@ def hero(t):
     return svg(W, H, alt, body, defs)
 
 
-def about(t):
-    """Apple-style statement: one large paragraph, key phrases lit up in color."""
-    W, size, leading = 1200, 42, 56
+def rich_lines(runs, size, weight, max_width, k=0.88):
+    """Wraps styled runs [(text, style)] into rows of words; a word may mix styles
+    ("cloud" + ","). An "ink" (gradient) run never breaks across lines."""
     words, current = [], []
-    for run in ABOUT:
-        content, color = (run, None) if isinstance(run, str) else run
-        if color:  # keep highlighted phrases together on one line
+    for content, style in runs:
+        if style == "ink":
             content = content.replace(" ", " ")
         for piece in re.findall(r"[^ ]+| +", content):  # split on plain spaces only
             if piece.startswith(" "):
@@ -240,46 +251,91 @@ def about(t):
                     words.append(current)
                     current = []
             else:
-                current.append((piece, color))
+                current.append((piece, style))
     if current:
         words.append(current)
-
-    space = text_width(" ", size, 600)
+    space = text_width(" ", size, weight) * k
     rows, row, width = [], [], 0.0
     for word in words:
-        w = sum(text_width(s, size, 600) for s, _ in word)
-        if row and width + space + w > W - 20:
+        w = sum(text_width(s, size, weight) * k for s, _ in word)
+        if row and width + space + w > max_width:
             rows.append(row)
             row, width = [], 0.0
         width += (space if row else 0) + w
         row.append(word)
     rows.append(row)
+    return rows
 
-    out = [text(0, 46, "ABOUT", 17, t["tertiary"], 600, 2.4)]
-    y = 122
+
+def rich_text(rows, x, y, size, weight, leading, tracking, fills):
+    out = []
     for row in rows:
         spans = []
         for i, word in enumerate(row):
-            for j, (s, color) in enumerate(word):
+            for j, (s, style) in enumerate(word):
                 lead = " " if i and j == 0 else ""
-                fill = sys(color, t) if color else t["tertiary"]
-                spans.append(f'<tspan fill="{fill}">{escape(lead + s)}</tspan>')
-        out.append(f'<text x="0" y="{y}" font-size="{size}" font-weight="600" letter-spacing="-1.1" '
+                spans.append(f'<tspan fill="{fills[style]}">{escape(lead + s)}</tspan>')
+        out.append(f'<text x="{x}" y="{y}" font-size="{size}" font-weight="{weight}" letter-spacing="{tracking}" '
                    f'style="white-space: pre">{"".join(spans)}</text>')
         y += leading
-    plain = "".join(r if isinstance(r, str) else r[0] for r in ABOUT)
-    return svg(W, y - leading + 30, plain, "".join(out))
+    return "".join(out), y - leading
+
+
+def about(t):
+    """Apple's two-tone statement: the point in full contrast, the rest in gray,
+    then a short bio with the focus areas in the hero's gradient."""
+    W = 1200
+    ai = [sys("blue", t), sys("purple", t), sys("pink", t), sys("orange", t)]
+    stops = "".join(f'<stop offset="{i / 3:.2f}" stop-color="{c}"/>' for i, c in enumerate(ai))
+    fills = {"label": t["label"], None: t["tertiary"], "ink": "url(#ink)", "body": t["secondary"]}
+
+    head_rows = rich_lines(ABOUT_HEADLINE, 50, 700, W - 40)
+    head, y = rich_text(head_rows, 0, 128, 50, 700, 62, -1.6, fills)
+    body_runs = [(s, st or "body") for s, st in ABOUT_BODY]
+    body_rows = rich_lines(body_runs, 26, 500, 940)
+    body, y = rich_text(body_rows, 0, y + 70, 26, 500, 40, -0.3, fills)
+
+    # The gradient spans the line the focus phrase lands on.
+    defs = f'<linearGradient id="ink" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="940" y2="0">{stops}</linearGradient>'
+    out = [text(0, 46, "ABOUT", 17, t["tertiary"], 600, 2.4), head, body]
+    plain = "".join(s for s, _ in ABOUT_HEADLINE) + " " + "".join(s for s, _ in ABOUT_BODY)
+    return svg(W, round(y + 26), plain, "".join(out), defs)
+
+
+def company_card(t):
+    """Opti5 Labs: logo, role, one line on what the company does, and its track record."""
+    W, H = 1200, 310
+    c = OPTI5
+    logo = base64.b64encode((OUT / c["logo"]).read_bytes()).decode()
+    orange = sys("orange", t)
+    out = [f'<rect width="{W}" height="{H}" rx="36" fill="{t["tile"]}"/>',
+           f'<rect x="44" y="49" width="212" height="212" rx="40" fill="#000000"/>',  # the mark is drawn for a dark ground
+           f'<image href="data:image/png;base64,{logo}" x="72" y="69" width="156" height="170" preserveAspectRatio="xMidYMid meet"/>',
+           text(304, 92, c["role"].upper(), 15, orange, 700, 1.8),
+           text(302, 150, c["name"], 48, t["label"], 700, -1.6)]
+    body = wrap(c["body"], 21, 600)
+    out.append(lines(304, 196, body, 21, 31, t["secondary"]))
+    out.append(text(304, 196 + 31 * (len(body) - 1) + 46, c["domain"] + "  ↗", 19, t["accent"], 600))
+    out.append(f'<line x1="880" x2="880" y1="69" y2="241" stroke="{t["separator"]}"/>')
+    for i, (value, label) in enumerate(c["stats"]):
+        y = 132 + i * 96
+        out.append(text(920, y, value, 44, t["label"], 700, -1.4))
+        out.append(text(920, y + 28, label, 17, t["tertiary"], 500))
+    alt = f'{c["role"]}, {c["name"]}. {c["body"]} ' + " ".join(f"{v} {l}." for v, l in c["stats"])
+    return svg(W, H, alt, "".join(out))
 
 
 def button(label, kind, primary, t):
-    H, size, icon = 56, 20, 22
-    w = 26 + icon + 10 + text_width(label, size, 600) + 28
-    bg = t["accent"] if primary else t["fill"]
-    fg = t["on_accent"] if primary else t["label"]
+    """HIG capsule button: drawn 56 tall so it displays at 44pt (the minimum tap target),
+    label near 17pt on screen, symbol and label optically centred with equal side padding."""
+    H, size, icon, pad, gap = 56, 21, 23, 24, 10
+    w = pad + icon + gap + text_width(label, size, 600) * 0.9 + pad
+    bg = "#0071E3" if primary else t["fill"]  # Apple's button blue: 4.6:1 with white in both themes
+    fg = "#FFFFFF" if primary else t["label"]
     s = icon / 24
     body = (f'<rect width="{w:.0f}" height="{H}" rx="{H / 2}" fill="{bg}"/>'
-            f'<g transform="translate(26 {(H - icon) / 2}) scale({s:.3f})">{glyph(kind, fg, bg)}</g>'
-            + text(26 + icon + 10, H / 2 + size * 0.36, label, size, fg, 600, -0.2))
+            f'<g transform="translate({pad} {(H - icon) / 2}) scale({s:.3f})">{glyph(kind, fg, bg)}</g>'
+            + text(pad + icon + gap, H / 2 + size * 0.36, label, size, fg, 600, -0.2))
     return svg(round(w), H, label, body)
 
 
@@ -444,7 +500,7 @@ def specs(t):
     reach = orbit + d / 2
 
     total = sum(len(items) for *_, items in SPECS)
-    out = [header("Toolbox", "Tech specs.", t, right=f"{total} tools"),
+    out = [header("Toolbox", "Tech stack.", t, right=f"{total} tools"),
            '<defs><radialGradient id="shine" cx="0.5" cy="0.12" r="0.85">'
            '<stop offset="0" stop-color="#fff" stop-opacity="0.4"/><stop offset="0.5" stop-color="#fff" stop-opacity="0.06"/>'
            '<stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>']
@@ -480,7 +536,7 @@ def specs(t):
             out.append(f'<text x="{cx:.1f}" y="{y + title_y + 38}" font-size="20" font-weight="500" '
                        f'text-anchor="middle" fill="{t["secondary"]}">{spans}</text>')
         y += tile_h + gap
-    alt = "Tech specs. " + " ".join(f"{a}: {', '.join(i)}." for a, _, _, i in SPECS)
+    alt = "Tech stack. " + " ".join(f"{a}: {', '.join(i)}." for a, _, _, i in SPECS)
     return svg(W, round(y - gap + 4), alt, "".join(out))
 
 
@@ -563,7 +619,9 @@ def main():
         files = {
             f"hero-{name}.svg": hero(t),
             f"about-{name}.svg": about(t),
+            f"opti5-{name}.svg": company_card(t),
             f"featured-header-{name}.svg": section_header("Projects", "Featured work.", t),
+            f"company-header-{name}.svg": section_header("Company", "What I'm building.", t),
             f"projects/{FEATURED['slug']}-{name}.svg": featured_card(FEATURED, t),
             f"specs-{name}.svg": specs(t),
             f"footer-{name}.svg": footer(t),

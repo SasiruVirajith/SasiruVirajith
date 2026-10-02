@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100" height="56" viewBox="0 0 100 56" role="img" aria-label="X">
+<svg xmlns="http://www.w3.org/2000/svg" width="94" height="56" viewBox="0 0 94 56" role="img" aria-label="X">
 <title>X</title>
 <defs></defs>
 <style>text { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Segoe UI Variable Display', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif; }</style>
-<rect width="100" height="56" rx="28.0" fill="#E8E8ED"/><g transform="translate(26 17.0) scale(0.917)"><path transform="translate(2.5 3) scale(0.0158)" fill="#1D1D1F" d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z"/></g><text x="58" y="35.2" font-size="20" font-weight="600" letter-spacing="-0.2" text-anchor="start" fill="#1D1D1F">X</text>
+<rect width="94" height="56" rx="28.0" fill="#E8E8ED"/><g transform="translate(24 16.5) scale(0.958)"><path transform="translate(2.6 2.8) scale(0.0157)" fill="#1D1D1F" stroke="#1D1D1F" stroke-width="40" stroke-linejoin="round" d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z"/></g><text x="57" y="35.56" font-size="21" font-weight="600" letter-spacing="-0.2" text-anchor="start" fill="#1D1D1F">X</text>
 </svg>

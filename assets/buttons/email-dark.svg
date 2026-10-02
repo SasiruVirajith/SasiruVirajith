@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="140" height="56" viewBox="0 0 140 56" role="img" aria-label="Email">
+<svg xmlns="http://www.w3.org/2000/svg" width="132" height="56" viewBox="0 0 132 56" role="img" aria-label="Email">
 <title>Email</title>
 <defs></defs>
 <style>text { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Segoe UI Variable Display', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif; }</style>
-<rect width="140" height="56" rx="28.0" fill="#2997FF"/><g transform="translate(26 17.0) scale(0.917)"><rect x="2" y="4.5" width="20" height="15" rx="3.5" fill="none" stroke="#FFFFFF" stroke-width="2"/><path d="M3.5 7l8.5 6 8.5-6" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g><text x="58" y="35.2" font-size="20" font-weight="600" letter-spacing="-0.2" text-anchor="start" fill="#FFFFFF">Email</text>
+<rect width="132" height="56" rx="28.0" fill="#0071E3"/><g transform="translate(24 16.5) scale(0.958)"><rect x="2" y="4.5" width="20" height="15" rx="3.5" fill="none" stroke="#FFFFFF" stroke-width="2"/><path d="M3.5 7l8.5 6 8.5-6" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g><text x="57" y="35.56" font-size="21" font-weight="600" letter-spacing="-0.2" text-anchor="start" fill="#FFFFFF">Email</text>
 </svg>
