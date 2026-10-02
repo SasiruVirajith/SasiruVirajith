@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="490" viewBox="0 0 1200 490" role="img" aria-label="Got an idea? Let&#x27;s build something. Always up for a conversation about FinTech, data and AI. Email virajithsasiru@gmail.com">
+<title>Got an idea? Let&#x27;s build something. Always up for a conversation about FinTech, data and AI. Email virajithsasiru@gmail.com</title>
+<defs>
+  <linearGradient id="ink" gradientUnits="userSpaceOnUse" x1="556" y1="0" x2="1056" y2="0"><stop offset="0.00" stop-color="#007AFF"/><stop offset="0.33" stop-color="#AF52DE"/><stop offset="0.67" stop-color="#FF2D55"/><stop offset="1.00" stop-color="#FF9500"/></linearGradient>
+  <clipPath id="frame"><rect width="1200" height="490" rx="40"/></clipPath>
+  <clipPath id="btn"><rect x="80" y="326" width="441.8" height="84" rx="42.0"/></clipPath>
+  <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="50"/></filter>
+  <filter id="rim" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
+  <filter id="lift" x="-30%" y="-40%" width="160%" height="200%"><feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000" flood-opacity="0.14"/></filter>
+  <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="0.3" stop-color="#fff" stop-opacity="0.15"/>
+    <stop offset="0.7" stop-color="#fff" stop-opacity="0.05"/><stop offset="1" stop-color="#fff" stop-opacity="0.75"/>
+  </linearGradient>
+  <linearGradient id="top" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity="0.9"/><stop offset="0.3" stop-color="#fff" stop-opacity="0"/>
+    <stop offset="0.85" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity="0.4"/>
+  </linearGradient>
+  <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity="0.55"/><stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+  <g id="glowfield" filter="url(#glow)">
+    <circle cx="190" cy="388" r="100" fill="#007AFF"/>
+    <circle cx="345" cy="358" r="95" fill="#AF52DE"/>
+    <circle cx="478" cy="398" r="80" fill="#FF2D55"/>
+  </g></defs>
+<style>text { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Segoe UI Variable Display', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif; }</style>
+
+<g clip-path="url(#frame)">
+  <rect width="1200" height="490" fill="#FFFFFF"/>
+  <use href="#glowfield" opacity="0.14"/>
+  <text x="80" y="112" font-size="34" font-weight="600" letter-spacing="-0.5" text-anchor="start" fill="#6E6E73">Got an idea?</text>
+  <text x="74" y="222" font-size="100" font-weight="700" letter-spacing="-4">
+    <tspan fill="#1D1D1F">Let&#x27;s build </tspan><tspan fill="url(#ink)">something.</tspan>
+  </text>
+  <text x="80" y="282" font-size="26" font-weight="500" letter-spacing="-0.3" text-anchor="start" fill="#6E6E73">Always up for a conversation about FinTech, data and AI.</text>
+
+  <rect x="80" y="326" width="441.8" height="84" rx="42.0" fill="#FFFFFF" filter="url(#lift)"/>
+  <g clip-path="url(#btn)">
+    <rect x="80" y="326" width="441.8" height="84" fill="#FFFFFF"/>
+    <use href="#glowfield" transform="translate(300.92280000000005 368.0) scale(1.15) translate(-300.92280000000005 -368.0)" opacity="0.3"/>
+    <rect x="80" y="326" width="441.8" height="84" fill="#fff" fill-opacity="0.35"/>
+    <rect x="80" y="326" width="441.8" height="84" fill="url(#sheen)"/>
+    <rect x="80" y="326" width="441.8" height="84" rx="42.0" fill="none" stroke="#fff" stroke-opacity="0.85" stroke-width="16" filter="url(#rim)"/>
+  </g>
+  <rect x="81.5" y="327.5" width="438.8" height="81" rx="40.5" fill="none" stroke="url(#top)" stroke-width="1.5"/>
+  <rect x="80" y="326" width="441.8" height="84" rx="42.0" fill="none" stroke="url(#edge)" stroke-width="2" stroke-opacity="1"/>
+  <g transform="translate(114 355.0) scale(1.08)"><rect x="2" y="4.5" width="20" height="15" rx="3.5" fill="none" stroke="#1D1D1F" stroke-width="2"/><path d="M3.5 7l8.5 6 8.5-6" fill="none" stroke="#1D1D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <text x="156" y="378.08" font-size="28" font-weight="600" letter-spacing="-0.4" text-anchor="start" fill="#1D1D1F">virajithsasiru@gmail.com</text>
+  <text x="487.8" y="378.08" font-size="32" font-weight="500" letter-spacing="0" text-anchor="end" fill="#6E6E73">›</text>
+</g>
+<rect x="0.5" y="0.5" width="1199" height="489" rx="39.5" fill="none" stroke="#D2D2D7" stroke-opacity="0.8"/>
+
+</svg>

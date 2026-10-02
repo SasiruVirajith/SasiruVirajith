@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="580" viewBox="0 0 1200 580" role="img" aria-label="Hello, I&#x27;m Sasiru Virajith. Software. Data. AI. Software that feels simple. Engineering that isn&#x27;t. Colombo, Sri Lanka  ·  University of Westminster">
+<title>Hello, I&#x27;m Sasiru Virajith. Software. Data. AI. Software that feels simple. Engineering that isn&#x27;t. Colombo, Sri Lanka  ·  University of Westminster</title>
+<defs>
+  <linearGradient id="ink" gradientUnits="userSpaceOnUse" x1="80" y1="0" x2="980" y2="0"><stop offset="0.00" stop-color="#007AFF"/><stop offset="0.33" stop-color="#AF52DE"/><stop offset="0.67" stop-color="#FF2D55"/><stop offset="1.00" stop-color="#FF9500"/></linearGradient>
+  <clipPath id="frame"><rect width="1200" height="580" rx="40"/></clipPath>
+  <clipPath id="lens"><rect x="483.05984" y="290" width="309.7381888" height="128" rx="64.0"/></clipPath>
+  <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="55"/></filter>
+  <filter id="rim" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="7"/></filter>
+  <filter id="lift" x="-30%" y="-40%" width="160%" height="200%"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity="0.16"/></filter>
+  <filter id="blue" x="0" y="0" width="100%" height="100%"><feColorMatrix type="matrix" values="0 0 0 0 0.000  0 0 0 0 0.478  0 0 0 0 1.000  0 0 0 1 0"/></filter>
+  <filter id="pink" x="0" y="0" width="100%" height="100%"><feColorMatrix type="matrix" values="0 0 0 0 1.000  0 0 0 0 0.176  0 0 0 0 0.333  0 0 0 1 0"/></filter>
+  <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="0.3" stop-color="#fff" stop-opacity="0.15"/>
+    <stop offset="0.7" stop-color="#fff" stop-opacity="0.05"/><stop offset="1" stop-color="#fff" stop-opacity="0.75"/>
+  </linearGradient>
+  <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity="0.55"/><stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="top" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity="0.9"/><stop offset="0.3" stop-color="#fff" stop-opacity="0"/>
+    <stop offset="0.85" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity="0.4"/>
+  </linearGradient>
+  <g id="glowfield" filter="url(#glow)">
+    <circle cx="567.9289344" cy="384.0" r="110" fill="#007AFF"/>
+    <circle cx="717.9289344" cy="334.0" r="100" fill="#AF52DE"/>
+    <circle cx="657.9289344" cy="434.0" r="80" fill="#FF2D55"/>
+  </g>
+  <g id="type">
+    <text x="80" y="138" font-size="34" font-weight="600" letter-spacing="-0.5" text-anchor="start" fill="#6E6E73">Hello, I&#x27;m</text>
+    <text x="74" y="254" font-size="124" font-weight="700" letter-spacing="-5" text-anchor="start" fill="#1D1D1F">Sasiru Virajith.</text>
+    <text x="76.0" y="380" font-size="96" font-weight="700" letter-spacing="-3.8" text-anchor="start" fill="url(#ink)">Software.</text><text x="637.9" y="380" font-size="96" font-weight="700" letter-spacing="-3.8" text-anchor="middle" fill="url(#ink)">Data.</text><text x="814.8" y="380" font-size="96" font-weight="700" letter-spacing="-3.8" text-anchor="start" fill="url(#ink)">AI.</text>
+  </g></defs>
+<style>text { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Segoe UI Variable Display', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif; }</style>
+
+<g clip-path="url(#frame)">
+  <rect width="1200" height="580" fill="#FFFFFF"/>
+  <use href="#glowfield" opacity="0.16"/>
+  <use href="#type"/>
+  <!-- TAGLINE: edit the line below (and in the other theme's file), or change TAGLINE in tools/build_assets.py -->
+  <text x="80" y="452" font-size="28" font-weight="500" letter-spacing="-0.4" text-anchor="start" fill="#6E6E73">Software that feels simple. Engineering that isn&#x27;t.</text>
+  <text x="80" y="500" font-size="20" font-weight="500" letter-spacing="0.0" text-anchor="start" fill="#86868B">Colombo, Sri Lanka  ·  University of Westminster</text>
+
+  <rect x="483.05984" y="290" width="309.7381888" height="128" rx="64.0" fill="#FFFFFF" filter="url(#lift)"/>
+  <g clip-path="url(#lens)">
+    <rect x="483.05984" y="290" width="309.7381888" height="128" fill="#FFFFFF"/>
+    <use href="#glowfield" transform="translate(637.9289344 354.0) scale(1.2) translate(-637.9289344 -354.0)" opacity="0.3"/>
+    <rect x="483.05984" y="290" width="309.7381888" height="128" fill="#fff" fill-opacity="0"/>
+    <g transform="translate(637.9289344 354.0) scale(1.2) translate(-637.9289344 -354.0)">
+      <use href="#type" filter="url(#blue)" opacity="0.5" x="-3"/>
+      <use href="#type" filter="url(#pink)" opacity="0.5" x="3"/>
+      <use href="#type"/>
+    </g>
+    <rect x="483.05984" y="290" width="309.7381888" height="128" fill="url(#sheen)"/>
+    <rect x="483.05984" y="290" width="309.7381888" height="128" rx="64.0" fill="none" stroke="#fff" stroke-opacity="0.85" stroke-width="16" filter="url(#rim)"/>
+  </g>
+  <rect x="484.55984" y="291.5" width="306.7381888" height="125" rx="62.5" fill="none" stroke="url(#top)" stroke-width="1.5"/>
+  <rect x="483.05984" y="290" width="309.7381888" height="128" rx="64.0" fill="none" stroke="url(#edge)" stroke-width="2"/>
+</g>
+<rect x="0.5" y="0.5" width="1199" height="579" rx="39.5" fill="none" stroke="#D2D2D7" stroke-opacity="0.8"/>
+
+</svg>
