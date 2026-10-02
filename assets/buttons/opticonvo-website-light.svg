@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300.0" height="64" viewBox="0 0 300.0 64" role="img" aria-label="Visit website">
+<title>Visit website</title>
+<defs></defs>
+<style>text { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Segoe UI Variable Display', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif; }</style>
+<rect x="16.0" width="276.0" height="64" rx="32.0" fill="#F5F5F7"/><g transform="translate(82.6 20)"><circle cx="12" cy="12" r="9" fill="none" stroke="#0071E3" stroke-width="1.8"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z" fill="none" stroke="#0071E3" stroke-width="1.8"/></g><text x="116.6" y="39.0" font-size="19" font-weight="600" letter-spacing="-0.1" text-anchor="start" fill="#0071E3">Visit website</text>
+</svg>

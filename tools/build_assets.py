@@ -428,8 +428,16 @@ def featured_card(p, t):
     return svg(W, H, alt, "".join(out))
 
 
-def project_card(p, t):
-    W, H = 590, 540
+# The two half-width cards and the four link pills below them sit edge to edge in the
+# README (each image exactly 50% / 25% wide, no whitespace), so the gutters are drawn
+# inside the images. Everything then lines up with the full-width card above at any width.
+GUTTER = 32  # matches the vertical gap GitHub puts between stacked images
+CELL = 600
+
+
+def project_card(p, t, side):
+    W, H = CELL - GUTTER / 2, 540
+    ox = 0 if side == 0 else GUTTER / 2
     logo = base64.b64encode((OUT / p["logo"]).read_bytes()).decode()
     out = [f'<rect width="{W}" height="{H}" rx="36" fill="{t["tile"]}"/>',
            f'<image href="data:image/png;base64,{logo}" x="34" y="30" width="112" height="112"/>',
@@ -444,25 +452,26 @@ def project_card(p, t):
         out.append(f'<circle cx="56" cy="{y - 6}" r="4" fill="{color}"/>')
         out.append(text(74, y, f, 19, t["label"], 500))
         y += 33
-    return svg(W, H, p["title"] + " " + p["body"], "".join(out))
+    return svg(CELL, H, p["title"] + " " + p["body"], f'<g transform="translate({ox} 0)">{"".join(out)}</g>')
 
 
-def link_pill(label, kind, t):
-    """Full-width control that sits under a project card; half a card wide."""
-    W, H = 288, 64
+def link_pill(label, kind, t, slot):
+    """One of four controls under the two half cards. `slot` 0-3 is its quarter of the row;
+    each card's width is split into two pills with a gutter between them."""
+    cell, H = CELL / 2, 64
+    W = (CELL - GUTTER / 2 - GUTTER) / 2                     # two pills + one gutter = a card's width
+    card_x = 0 if slot < 2 else CELL + GUTTER / 2            # where this pill's card starts in the row
+    x = card_x + (slot % 2) * (W + GUTTER) - slot * cell     # convert row position to this cell
     color = t["accent"] if kind == "web" else t["label"]
-    icon = (f'<g transform="translate({0} {20}) scale(1)">'
-            + (f'<circle cx="12" cy="12" r="9" fill="none" stroke="{color}" stroke-width="1.8"/>'
-               f'<path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z" fill="none" stroke="{color}" stroke-width="1.8"/>'
-               if kind == "web" else
-               f'<path transform="scale(1)" fill="{color}" d="{ICONS["GitHub"]["path"]}"/>')
-            + '</g>')
-    tw = 24 + 10 + text_width(label, 19, 600)
-    x0 = (W - tw) / 2
-    body = (f'<rect width="{W}" height="{H}" rx="{H / 2}" fill="{t["tile"]}"/>'
-            f'<g transform="translate({x0:.1f} 0)">{icon}</g>'
+    icon = (f'<circle cx="12" cy="12" r="9" fill="none" stroke="{color}" stroke-width="1.8"/>'
+            f'<path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z" fill="none" stroke="{color}" stroke-width="1.8"/>'
+            if kind == "web" else f'<path fill="{color}" d="{ICONS["GitHub"]["path"]}"/>')
+    tw = 24 + 10 + text_width(label, 19, 600) * 0.9
+    x0 = x + (W - tw) / 2
+    body = (f'<rect x="{x:.1f}" width="{W:.1f}" height="{H}" rx="{H / 2}" fill="{t["tile"]}"/>'
+            f'<g transform="translate({x0:.1f} 20)">{icon}</g>'
             + text(f"{x0 + 34:.1f}", H / 2 + 7, label, 19, color, 600, -0.1))
-    return svg(W, H, label, body)
+    return svg(cell, H, label, body)
 
 
 def _lum(hex_):
@@ -626,10 +635,10 @@ def main():
             f"specs-{name}.svg": specs(t),
             f"footer-{name}.svg": footer(t),
         }
-        for p in PROJECTS:
-            files[f"projects/{p['slug']}-{name}.svg"] = project_card(p, t)
-        files[f"buttons/website-{name}.svg"] = link_pill("Visit website", "web", t)
-        files[f"buttons/github-{name}.svg"] = link_pill("GitHub", "github", t)
+        for side, p in enumerate(PROJECTS):
+            files[f"projects/{p['slug']}-{name}.svg"] = project_card(p, t, side)
+            files[f"buttons/{p['slug']}-website-{name}.svg"] = link_pill("Visit website", "web", t, side * 2)
+            files[f"buttons/{p['slug']}-github-{name}.svg"] = link_pill("GitHub", "github", t, side * 2 + 1)
         for slug, label, kind, primary in LINKS:
             files[f"buttons/{slug}-{name}.svg"] = button(label, kind, primary, t)
         for path, content in files.items():
